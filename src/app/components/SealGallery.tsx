@@ -1,12 +1,14 @@
+import Image from "next/image";
+
 export default function SealGallery() {
   const images = [
     "/images/20200725_223135_edited_edited.jpg",
-    "/images/Bolt Seal wd plastic.jpg",
-    "/images/Cable Tie group.jpg",
+    "/images/Bolt_Seal_wd_plastic.jpg",
+    "/images/Cable_Tie_group.jpg",
     "/images/Einlock3.jpg",
-    "/images/Mini Jawlock asstd color.jpg",
-    "/images/Screen Shot 2019-01-22 at 11.29.56 PM.png",
-    "/images/TwinLock Pastel shades.jpg",
+    "/images/Mini_Jawlock_asstd_color.jpg",
+    "/images/Screen_Shot_2019-01-22_at_11.29.56_PM.png",
+    "/images/TwinLock_Pastel_shades.jpg",
   ];
 
   return (
@@ -25,7 +27,7 @@ export default function SealGallery() {
           <div className='flex flex-wrap justify-center gap-6 lg:gap-8'>
             {Array.from({ length: 7 }, (_, index) => (
               <div key={index} className='group'>
-                <img
+                <Image
                   className='w-24 h-24 lg:w-32 lg:h-32 rounded-full bg-gradient-to-br from-gray-100 to-gray-200 border-2 border-gray-300 flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110'
                   src={images[index]}
                   alt={`Seal ${index + 1}`}
