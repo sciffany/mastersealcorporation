@@ -1,16 +1,8 @@
 import Image from "next/image";
+import seals from "../lib/data";
+import Link from "next/link";
 
 export default function SealGallery() {
-  const images = [
-    "/images/20200725_223135_edited_edited.jpg",
-    "/images/Bolt_Seal_wd_plastic.jpg",
-    "/images/Cable_Tie_group.jpg",
-    "/images/Einlock3.jpg",
-    "/images/Mini_Jawlock_asstd_color.jpg",
-    "/images/Screen_Shot_2019-01-22_at_11.29.56_PM.png",
-    "/images/TwinLock_Pastel_shades.jpg",
-  ];
-
   return (
     <section className='py-20 bg-orange-100'>
       <div className='container mx-auto px-8 lg:px-16'>
@@ -25,26 +17,33 @@ export default function SealGallery() {
 
           {/* Seal Images Gallery */}
           <div className='flex flex-wrap justify-center gap-6 lg:gap-8'>
-            {Array.from({ length: images.length }, (_, index) => (
-              <div key={index} className='group'>
-                <Image
-                  className='w-24 h-24 lg:w-32 lg:h-32 rounded-full bg-gradient-to-br from-gray-100 to-gray-200 border-2 border-gray-300 flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110'
-                  src={images[index]}
-                  alt={`Seal ${index + 1}`}
-                  width={100}
-                  height={100}
-                  style={{
-                    objectFit: "cover",
-                  }}
-                />
-              </div>
-            ))}
+            {seals
+              .filter((seal) => Boolean(seal.image))
+              .map((seal, index) => (
+                <div key={index} className='group'>
+                  <Link href={`/products/${seal.category}/${seal.slug}`}>
+                    <Image
+                      className='w-24 h-24 lg:w-32 lg:h-32 rounded-full bg-gradient-to-br from-gray-100 to-gray-200 border-2 border-gray-300 flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110'
+                      src={seal.image || ""}
+                      alt={seal.name}
+                      width={100}
+                      height={100}
+                      style={{
+                        objectFit: "cover",
+                      }}
+                    />
+                  </Link>
+                </div>
+              ))}
           </div>
 
           <div className='mt-12'>
-            <button className='bg-gradient-to-r from-red-600 to-red-700 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:from-red-700 hover:to-red-800 transition-all duration-300 transform hover:scale-105 shadow-lg'>
+            <Link
+              href='/products/all'
+              className='bg-gradient-to-r from-red-600 to-red-700 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:from-red-700 hover:to-red-800 transition-all duration-300 transform hover:scale-105 shadow-lg'
+            >
               View All Seals
-            </button>
+            </Link>
           </div>
         </div>
       </div>

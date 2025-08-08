@@ -29,8 +29,19 @@ export default function CategoryPage({
 
   return (
     <>
-      <div className='bg-gradient-to-br from-orange-200 via-orange-100 to-orange-300'>
+      <div className='bg-orange-100'>
         <div className='container mx-auto px-8 lg:px-32 pt-28 pb-10'>
+          <nav className='text-sm text-gray-600'>
+            {categoryData && (
+              <>
+                <Link href='/products/all' className='hover:underline'>
+                  Products
+                </Link>
+                <span className='mx-2'>/</span>
+              </>
+            )}
+            <span className='text-gray-800'>{categoryData?.name}</span>
+          </nav>
           <h1 className='text-black text-center text-5xl font-semibold mb-10'>
             {categoryData?.name || "All Products"}
           </h1>
@@ -47,7 +58,7 @@ export default function CategoryPage({
                   onClick={() => seal.image && setLightboxSrc(seal.image)}
                 >
                   <div className='relative aspect-square'>
-                    {seal.image && (
+                    {seal.image ? (
                       <Image
                         src={seal.image}
                         alt={seal.name}
@@ -56,43 +67,60 @@ export default function CategoryPage({
                         className='object-contain'
                         priority={false}
                       />
+                    ) : (
+                      <div className='flex items-center justify-center h-full'>
+                        <p className='text-gray-500'>No image available</p>
+                      </div>
                     )}
                     {/* bottom shadow to separate image from content */}
                     <div className='pointer-events-none absolute inset-x-0 bottom-0 h-6 bg-gradient-to-b from-transparent to-black/10' />
                   </div>
                 </button>
-                <div className='p-4 space-y-2 border-t border-gray-200'>
-                  <Link
-                    href={`/products/${seal.category}/${seal.slug}`}
-                    className='hover:underline'
-                  >
-                    <h2 className='text-xl text-black font-semibold'>
-                      {seal.name}
-                    </h2>
-                  </Link>
-                  <p className='text-md uppercase tracking-wide text-gray-500'>
-                    {categories.find((c) => c.slug === seal.category)?.name ||
-                      seal.category}
-                  </p>
-                  {seal.description && (
-                    <p className='text-md text-gray-600 mb-4'>
-                      {seal.description}
-                    </p>
-                  )}
-                  {typeof seal.moq === "number" && (
-                    <p className='text-md text-gray-700'>
-                      <b>MOQ:</b> {seal.moq}
-                    </p>
-                  )}
-                  <div>
-                    <button
-                      onClick={() => {
-                        window.open(seal.pdf, "_blank");
-                      }}
-                      className='text-md text-blue-600 bg-blue-200 p-6 py-4 rounded-lg hover:bg-blue-200 transition-colors'
+                <div className='p-4 border-t border-gray-200 h-[300px]'>
+                  <div className='space-y-2 h-[180px]'>
+                    <Link
+                      href={`/products/${seal.category}/${seal.slug}`}
+                      className='hover:underline'
                     >
-                      Brochure
-                    </button>
+                      <h2 className='text-xl text-black font-semibold'>
+                        {seal.name}
+                      </h2>
+                    </Link>
+                    <p className='text-md uppercase tracking-wide text-gray-500'>
+                      {categories.find((c) => c.slug === seal.category)?.name ||
+                        seal.category}
+                    </p>
+                    {seal.description && (
+                      <p
+                        className='text-md text-gray-600 mb-4'
+                        style={{
+                          lineHeight: "1.5",
+                          display: "-webkit-box",
+                          WebkitBoxOrient: "vertical",
+                          WebkitLineClamp: 5,
+                          overflow: "hidden",
+                        }}
+                      >
+                        {seal.description}
+                        {seal.moq && (
+                          <>
+                            <br />
+                            <br />
+                            <b>MOQ:</b> {seal.moq}
+                          </>
+                        )}
+                      </p>
+                    )}
+                  </div>
+                  <div className='flex flex-wrap gap-4 mt-4'>
+                    <a
+                      href={seal.pdf}
+                      target='_blank'
+                      rel='noopener noreferrer'
+                      className='inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors'
+                    >
+                      View Brochure
+                    </a>
                   </div>
                 </div>
               </div>
