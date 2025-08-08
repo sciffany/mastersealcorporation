@@ -5,7 +5,12 @@ import Image from "next/image";
 import Navigation from "../../components/Navigation";
 import seals, { categories } from "@/app/lib/data";
 import Link from "next/link";
-export const runtime = "edge";
+export const dynamic = "force-static";
+export const dynamicParams = false; // only build known paths
+
+export async function generateStaticParams() {
+  return categories.map((c) => ({ category: c.slug }));
+}
 
 export default function CategoryPage({
   params,
