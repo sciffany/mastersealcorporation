@@ -5,10 +5,14 @@ export const dynamic = "force-static";
 export const dynamicParams = false; // only build known paths
 
 export async function generateStaticParams() {
-  return seals.map((s) => ({ product: s.slug }));
+  return seals.map((s) => ({ product: s.slug, category: s.category }));
 }
 
-const ProductPage = () => {
+const ProductPage = ({
+  params,
+}: {
+  params: { product: string; category: string };
+}) => {
   return (
     <>
       <Navigation />
