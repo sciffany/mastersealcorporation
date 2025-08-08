@@ -2,18 +2,15 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import Carousel from "./components/Carousel";
-import Delivery from "./components/Delivery";
-import FreeDelivery from "./components/FreeDelivery";
-import SealGallery from "./components/SealGallery";
-import ContactUs from "./components/ContactUs";
+import AboutUs from "../components/AboutUs";
+import ContactUs from "../components/ContactUs";
 
 export default function Home() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   // Navigation headings array
   const navigationItems = [
-    { id: 1, label: "Home", href: "#" },
+    { id: 1, label: "Home", href: "/" },
     { id: 2, label: "About Us", href: "/about-us" },
     { id: 3, label: "Products", href: "/" },
     { id: 4, label: "Blog", href: "/" },
@@ -90,12 +87,7 @@ export default function Home() {
         </nav>
       </header>
 
-      <Carousel />
-
-      <Delivery />
-
-      <SealGallery />
-      <FreeDelivery />
+      <AboutUs />
 
       <ContactUs />
     </div>

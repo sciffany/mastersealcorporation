@@ -26,14 +26,6 @@ export default function Delivery() {
                 With Masterseal Corporation's plastic and metal seals, you can
                 deliver your products reliably!
               </p>
-              <div className='flex flex-col sm:flex-row gap-4 justify-center lg:justify-start'>
-                <button className='bg-gradient-to-r from-red-600 to-red-700 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:from-red-700 hover:to-red-800 transition-all duration-300 transform hover:scale-105 shadow-lg'>
-                  Get Started
-                </button>
-                <button className='border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-lg text-lg font-semibold hover:border-gray-400 hover:bg-gray-50 transition-all duration-300'>
-                  Learn More
-                </button>
-              </div>
             </div>
           </div>
         </div>

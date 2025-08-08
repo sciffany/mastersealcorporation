@@ -20,7 +20,7 @@ export default function FreeDelivery() {
                 coordinate with our Sales.
               </p>
               <div className='flex flex-col sm:flex-row gap-4 justify-center lg:justify-start'>
-                <button className='bg-gradient-to-r from-red-600 to-red-700 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:from-blue-700 hover:to-indigo-800 transition-all duration-300 transform hover:scale-105 shadow-lg'>
+                <button className='bg-gradient-to-r from-red-600 to-red-700 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:from-red-700 hover:to-red-800 transition-all duration-300 transform hover:scale-105 shadow-lg'>
                   Explore Solutions
                 </button>
               </div>
