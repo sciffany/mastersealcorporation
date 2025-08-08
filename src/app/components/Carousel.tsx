@@ -73,7 +73,7 @@ export default function Carousel() {
 
   return (
     <main
-      className={`relative h-screen w-full overflow-hidden ${getThemeClasses(
+      className={`relative h-[700px] w-full overflow-hidden ${getThemeClasses(
         slides[currentSlide].theme
       )} transition-all duration-500`}
     >
