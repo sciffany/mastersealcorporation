@@ -157,6 +157,8 @@ export default function Carousel() {
                     alt={slide.imagePlaceholder}
                     width={slide.imageWidth}
                     height={slide.imageHeight}
+                    priority={index === 0}
+                    sizes='(min-width: 1024px) 50vw, 100vw'
                     className='max-w-full h-auto object-cover object-left'
                     style={
                       slide.id === 2
@@ -201,6 +203,8 @@ export default function Carousel() {
                   alt={slide.imagePlaceholder}
                   width={slide.imageWidth / 2}
                   height={slide.imageHeight / 2}
+                  priority={index === 0}
+                  sizes='100vw'
                   className='max-w-full h-auto'
                   style={
                     slide.id === 2

@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -12,11 +13,38 @@ export async function generateStaticParams() {
   return seals.map((s) => ({ product: s.slug, category: s.category }));
 }
 
-const ProductPage = ({
+type ProductParams = { params: { product: string; category: string } };
+
+export async function generateMetadata({
   params,
-}: {
-  params: { product: string; category: string };
-}) => {
+}: ProductParams): Promise<Metadata> {
+  const { product, category } = params;
+  const seal = seals.find((s) => s.slug === product && s.category === category);
+  if (!seal) return {};
+
+  const categoryDisplayName =
+    categories.find((c) => c.slug === seal.category)?.name || seal.category;
+
+  const title = `${seal.name} – ${categoryDisplayName}`;
+  const description =
+    seal.description || `${seal.name} security seal details and brochure.`;
+  const base = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+  const canonical = `${base}/products/${seal.category}/${seal.slug}`;
+
+  return {
+    title,
+    description,
+    alternates: { canonical },
+    openGraph: {
+      title,
+      description,
+      url: canonical,
+      images: seal.image ? [{ url: seal.image }] : undefined,
+    },
+  };
+}
+
+const ProductPage = ({ params }: ProductParams) => {
   const { product, category } = params;
   const seal = seals.find((s) => s.slug === product);
 
@@ -41,6 +69,68 @@ const ProductPage = ({
       <Navigation />
       <section className='bg-gradient-to-br from-orange-200 via-orange-100 to-orange-300'>
         <div className='container mx-auto px-8 lg:px-32 pt-28 pb-16'>
+          {/* BreadcrumbList JSON-LD for product page */}
+          <script
+            type='application/ld+json'
+            // eslint-disable-next-line react/no-danger
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "BreadcrumbList",
+                itemListElement: [
+                  {
+                    "@type": "ListItem",
+                    position: 1,
+                    name: "Products",
+                    item:
+                      (process.env.NEXT_PUBLIC_SITE_URL ||
+                        "http://localhost:3000") + "/products/all",
+                  },
+                  {
+                    "@type": "ListItem",
+                    position: 2,
+                    name: categoryDisplayName,
+                    item:
+                      (process.env.NEXT_PUBLIC_SITE_URL ||
+                        "http://localhost:3000") + `/products/${seal.category}`,
+                  },
+                  {
+                    "@type": "ListItem",
+                    position: 3,
+                    name: seal.name,
+                    item:
+                      (process.env.NEXT_PUBLIC_SITE_URL ||
+                        "http://localhost:3000") +
+                      `/products/${seal.category}/${seal.slug}`,
+                  },
+                ],
+              }),
+            }}
+          />
+          {/* Product JSON-LD */}
+          <script
+            type='application/ld+json'
+            // eslint-disable-next-line react/no-danger
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "Product",
+                name: seal.name,
+                image: seal.image ? [seal.image] : undefined,
+                description: seal.description,
+                brand: { "@type": "Brand", name: "Masterseal Corporation" },
+                category: categoryDisplayName,
+                offers: {
+                  "@type": "Offer",
+                  priceCurrency: "PHP",
+                  availability: "https://schema.org/InStock",
+                  url: `${
+                    process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"
+                  }/products/${seal.category}/${seal.slug}`,
+                },
+              }),
+            }}
+          />
           <div className='mb-6'>
             <nav className='text-sm text-gray-600'>
               <Link href='/products/all' className='hover:underline'>
@@ -66,6 +156,7 @@ const ProductPage = ({
                     src={seal.image}
                     alt={seal.name}
                     fill
+                    sizes='(min-width: 1024px) 50vw, 100vw'
                     className='object-contain'
                     priority={false}
                   />

@@ -56,7 +56,7 @@ const seals: Seal[] = [
   {
     slug: "lightlock",
     name: "Lightlock",
-    pdf: "/variable-length/Lightlock_Brochure.pdf",
+    pdf: "/variable-length/LightLock_Brochure.pdf",
     category: "variable-length",
     description:
       "Lightlock is for fire extinguisher, emergency cabinets, medical kits. (low break strength)",
