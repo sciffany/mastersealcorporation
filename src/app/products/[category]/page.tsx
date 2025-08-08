@@ -5,6 +5,7 @@ import Image from "next/image";
 import Navigation from "../../components/Navigation";
 import seals, { categories } from "@/app/lib/data";
 import Link from "next/link";
+export const runtime = "edge";
 
 export default function CategoryPage({
   params,
@@ -32,8 +33,8 @@ export default function CategoryPage({
     <div>
       <Navigation />
       <div className='bg-gradient-to-br from-orange-200 via-orange-100 to-orange-300'>
-        <div className='container mx-auto px-8 lg:px-16 pt-28 pb-10'>
-          <h1 className='text-black text-center text-3xl font-semibold mb-6'>
+        <div className='container mx-auto px-8 lg:px-32 pt-28 pb-10'>
+          <h1 className='text-black text-center text-5xl font-semibold mb-10'>
             {categoryData?.name || "All Products"}
           </h1>
           <div className='grid grid-cols-1 md:grid-cols-3 gap-14'>
@@ -55,7 +56,7 @@ export default function CategoryPage({
                         alt={seal.name}
                         fill
                         sizes='(min-width: 768px) 33vw, 100vw'
-                        className='object-cover'
+                        className='object-contain'
                         priority={false}
                       />
                     )}
@@ -87,14 +88,14 @@ export default function CategoryPage({
                     </p>
                   )}
                   <div>
-                    <a
-                      href={seal.pdf}
-                      target='_blank'
-                      rel='noopener noreferrer'
-                      className='text-sm text-blue-600 hover:underline'
+                    <button
+                      onClick={() => {
+                        window.open(seal.pdf, "_blank");
+                      }}
+                      className='text-md text-blue-600 bg-blue-200 p-6 py-4 rounded-lg hover:bg-blue-200 transition-colors'
                     >
-                      View PDF brochure
-                    </a>
+                      Brochure
+                    </button>
                   </div>
                 </div>
               </div>
