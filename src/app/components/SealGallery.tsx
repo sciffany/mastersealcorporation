@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 export default function SealGallery() {
   const images = [
     "/images/20200725_223135_edited_edited.jpg",
@@ -27,7 +25,7 @@ export default function SealGallery() {
           <div className='flex flex-wrap justify-center gap-6 lg:gap-8'>
             {Array.from({ length: 7 }, (_, index) => (
               <div key={index} className='group'>
-                <Image
+                <img
                   className='w-24 h-24 lg:w-32 lg:h-32 rounded-full bg-gradient-to-br from-gray-100 to-gray-200 border-2 border-gray-300 flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110'
                   src={images[index]}
                   alt={`Seal ${index + 1}`}
