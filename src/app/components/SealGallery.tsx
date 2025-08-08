@@ -1,6 +1,16 @@
 import Image from "next/image";
 
 export default function SealGallery() {
+  const images = [
+    "/images/20200725_223135_edited_edited.jpg",
+    "/images/Bolt Seal wd plastic.jpg",
+    "/images/Cable Tie group.jpg",
+    "/images/Einlock3.jpg",
+    "/images/Mini Jawlock asstd color.jpg",
+    "/images/Screen Shot 2019-01-22 at 11.29.56 PM.png",
+    "/images/TwinLock Pastel shades.jpg",
+  ];
+
   return (
     <section className='py-20 bg-orange-100'>
       <div className='container mx-auto px-8 lg:px-16'>
@@ -15,28 +25,18 @@ export default function SealGallery() {
 
           {/* Seal Images Gallery */}
           <div className='flex flex-wrap justify-center gap-6 lg:gap-8'>
-            {Array.from({ length: 10 }, (_, index) => (
+            {Array.from({ length: 7 }, (_, index) => (
               <div key={index} className='group'>
-                <div className='w-24 h-24 lg:w-32 lg:h-32 rounded-full bg-gradient-to-br from-gray-100 to-gray-200 border-2 border-gray-300 flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110'>
-                  <div className='text-center'>
-                    <svg
-                      className='w-12 h-12 lg:w-16 lg:h-16 mx-auto mb-2 text-gray-500 group-hover:text-gray-700 transition-colors'
-                      fill='none'
-                      stroke='currentColor'
-                      viewBox='0 0 24 24'
-                    >
-                      <path
-                        strokeLinecap='round'
-                        strokeLinejoin='round'
-                        strokeWidth={1.5}
-                        d='M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z'
-                      />
-                    </svg>
-                    <p className='text-xs lg:text-sm font-medium text-gray-600 group-hover:text-gray-800'>
-                      Seal {index + 1}
-                    </p>
-                  </div>
-                </div>
+                <Image
+                  className='w-24 h-24 lg:w-32 lg:h-32 rounded-full bg-gradient-to-br from-gray-100 to-gray-200 border-2 border-gray-300 flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110'
+                  src={images[index]}
+                  alt={`Seal ${index + 1}`}
+                  width={100}
+                  height={100}
+                  style={{
+                    objectFit: "cover",
+                  }}
+                />
               </div>
             ))}
           </div>

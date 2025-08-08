@@ -38,9 +38,9 @@ export default function Carousel() {
   const getThemeClasses = (theme: string) => {
     switch (theme) {
       case "pink":
-        return "bg-gradient-to-br from-red-200 via-red-200 to-red-300";
+        return "bg-gradient-to-br from-red-200 via-red-100 to-red-300";
       case "red":
-        return "bg-gradient-to-br from-red-900 via-red-800 to-rose-900";
+        return "bg-gradient-to-br from-red-900 via-red-700 to-rose-900";
       default:
         return "bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900";
     }

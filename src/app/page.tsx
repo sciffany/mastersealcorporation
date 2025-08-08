@@ -9,7 +9,6 @@ import SealGallery from "./components/SealGallery";
 import ContactUs from "./components/ContactUs";
 
 export default function Home() {
-  const [isMobile, setIsMobile] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   // Navigation headings array
