@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default function Delivery() {
+export default function AboutUs() {
   return (
-    <section className='py-28 bg-gradient-to-br from-gray-50 to-gray-100 h-[800px] flex flex-col items-center justify-center'>
+    <section className='py-36 lg:py-28 bg-gradient-to-br from-gray-50 to-gray-100 lg:h-[800px] flex flex-col items-center justify-center'>
       <div className='container mx-auto px-8 lg:px-16 lg:ml-[-20px]'>
         <div className='max-w-5xl mx-auto'>
           <div className='grid grid-cols-1 lg:grid-cols-2 lg:gap-24 items-center'>
@@ -12,7 +12,7 @@ export default function Delivery() {
               <Image
                 className='rounded-3xl ml-[-80px]'
                 src='/logo.avif'
-                alt='Delivery'
+                alt='About Us'
                 width={400}
                 height={400}
                 style={{
