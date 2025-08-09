@@ -7,7 +7,7 @@ export const dynamic = "force-static";
 export const dynamicParams = false; // only build known paths
 
 export async function generateStaticParams() {
-  return [...categories, { slug: "all", name: "All" }].map((c) => ({
+  return categories.map((c) => ({
     category: c.slug,
   }));
 }
