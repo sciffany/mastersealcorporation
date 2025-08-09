@@ -1,4 +1,5 @@
 import { blogPosts } from "@/app/lib/data";
+import type { Metadata } from "next";
 import ReactMarkdown from "react-markdown";
 import Navigation from "@/app/components/Navigation";
 import Image from "next/image";
@@ -15,6 +16,16 @@ export async function generateStaticParams() {
 }
 
 type BlogParams = { params: { blog: string } };
+
+export async function generateMetadata({
+  params,
+}: BlogParams): Promise<Metadata> {
+  return {
+    alternates: {
+      canonical: `/post/${params.blog}`,
+    },
+  };
+}
 
 export default function BlogPage({ params }: BlogParams) {
   const blog = blogPosts.find((blog) => blog.slug === params.blog);

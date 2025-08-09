@@ -23,9 +23,9 @@ export default function Delivery() {
             </div>
             {/* Content Side */}
             <div className='text-center lg:text-left'>
-              <h2 className='text-4xl lg:text-5xl font-bold text-gray-900 mb-8'>
+              <h1 className='text-4xl lg:text-5xl font-bold text-gray-900 mb-8'>
                 About Us
-              </h2>
+              </h1>
               <p className='text-md lg:text-lg text-gray-700 leading-relaxed mb-8'>
                 <b>Masterseal Corporation</b> is a trusted security seals
                 supplier in the Philippines. Helping you protect your asset, we
