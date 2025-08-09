@@ -247,7 +247,7 @@ Seals are TAMPER-EVIDENT and not tamper-proof.  Senders and receivers must obser
     title: "Defeat the Cheats",
     date: "2019-07-29",
     author: "Masterseal Corporation",
-    time: 2,
+    time: 1,
     image: "/post/defeat.avif",
     inlineImage: "/post/white.avif",
     caption: "Seals Turning White",
@@ -276,7 +276,7 @@ Some seals in the market are made of PE (Polyethylene) which does not turn white
     title: "The Seal Dilemma",
     date: "2019-07-29",
     author: "Masterseal Corporation",
-    time: 2,
+    time: 1,
     image: "/post/seal.avif",
     content: `
 Choosing which seal to secure your products can be a difficult choice, as Masterseal Corporation provides a wide variety of seals to choose from. That's why you can follow this blog to check which seal is the best for you!
