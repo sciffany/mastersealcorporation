@@ -239,7 +239,7 @@ Seals are TAMPER-EVIDENT and not tamper-proof.  Senders and receivers must obser
   },
 
   {
-    slug: "defeat-the-cheats",
+    slug: "imitation-seals",
     title: "Defeat the Cheats",
     date: "2019-07-29",
     author: "Masterseal Corporation",
@@ -268,7 +268,7 @@ KNOW THAT Essentra uses virgin PP (Polypropylene). When bent the colored plastic
 Some seals in the market are made of PE (Polyethylene) which does not turn white. PE is cheaper than PP. However, PE has the ability to stretch and return to its original shape after a while. This makes the seal prone to tampering.`,
   },
   {
-    slug: "the-seal-dilemma",
+    slug: "best-seals-to-secure-your-product",
     title: "The Seal Dilemma",
     date: "2019-07-29",
     author: "Masterseal Corporation",
