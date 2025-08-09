@@ -37,7 +37,7 @@ export default function Navigation() {
                     "grayscale(100%) sepia(100%) hue-rotate(-50deg) saturate(400%) brightness(60%)",
                 }}
               />
-              <div className='text-black font-bold text-xl'>
+              <div className='text-black font-bold text-md lg:text-xl'>
                 Masterseal Corporation
               </div>
             </div>
@@ -143,10 +143,7 @@ export default function Navigation() {
                           id='mobile-products-submenu'
                           className='pl-4 pb-2 space-y-1'
                         >
-                          {[
-                            { slug: "all", name: "All Products" },
-                            ...categories,
-                          ].map((category) => (
+                          {[...categories].map((category) => (
                             <Link
                               key={category.slug}
                               href={`/products/${category.slug}`}

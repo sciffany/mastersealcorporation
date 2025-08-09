@@ -159,18 +159,22 @@ export const categories = [
   {
     slug: "fixed-length",
     name: "Fixed Length",
+    image: "/fixed-length/TwinLock_Pastel_shades.JPG",
   },
   {
     slug: "variable-length",
     name: "Variable Length",
+    image: "/variable-length/Dobolox.avif",
   },
   {
     slug: "barrier-seal",
     name: "Barrier Seals",
+    image: "/barrier-seal/cableseal.avif",
   },
   {
     slug: "special-purpose",
     name: "Special Purpose",
+    image: "/special-purpose/securitape.avif",
   },
 ];
 
