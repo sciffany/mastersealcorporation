@@ -36,7 +36,7 @@ export const metadata: Metadata = {
       "Masterseal Corporation is a leading provider of security seals for trucks, containers, meters, and more in the Philippines.",
     images: [
       {
-        url: "/android-chrome-512x512.png",
+        url: "/images/android-chrome-512x512.png",
         width: 630,
         height: 630,
         alt: "Masterseal Corporation",
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     title: "Masterseal Corporation",
     description:
       "Masterseal Corporation is a leading provider of security seals for trucks, containers, meters, and more in the Philippines.",
-    images: ["/android-chrome-512x512.png"],
+    images: ["/images/android-chrome-512x512.png"],
   },
 };
 
@@ -62,7 +62,7 @@ export default function RootLayout({
     "@type": "Organization",
     name: "Masterseal Corporation",
     url: BASE_URL,
-    logo: "/logo.avif",
+    logo: "/images/android-chrome-512x512.png",
   };
 
   const websiteJsonLd = {
