@@ -5,6 +5,7 @@ import Navigation from "../components/Navigation";
 import { blogPosts } from "../lib/data";
 import Link from "next/link";
 import Image from "next/image";
+import ContactUs from "../components/ContactUs";
 
 export default function Blogs() {
   return (
@@ -88,6 +89,7 @@ export default function Blogs() {
           </div>
         </div>
       </section>
+      <ContactUs />
     </div>
   );
 }

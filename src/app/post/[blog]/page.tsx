@@ -4,6 +4,7 @@ import Navigation from "@/app/components/Navigation";
 import Image from "next/image";
 import BlogContent from "@/app/components/BlogContent";
 import { notFound } from "next/navigation";
+import ContactUs from "@/app/components/ContactUs";
 export const dynamic = "force-static";
 export const dynamicParams = false; // only build known paths
 
@@ -26,6 +27,7 @@ export default function BlogPage({ params }: BlogParams) {
     <div>
       <Navigation />
       <BlogContent blog={blog} />
+      <ContactUs />
     </div>
   );
 }

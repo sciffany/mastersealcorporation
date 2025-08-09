@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { categories } from "@/app/lib/data";
+import Image from "next/image";
 
 export default function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -24,9 +25,23 @@ export default function Navigation() {
     <header className='fixed top-0 left-0 right-0 z-50 bg-black backdrop-blur-md border-b border-white/20'>
       <nav className='container mx-auto px-8 lg:px-16 py-4'>
         <div className='flex items-center justify-between'>
-          <div className='text-white font-bold text-xl'>
-            Masterseal Corporation
-          </div>
+          <Link href='/'>
+            <div className='flex items-center gap-2 bg-white rounded-full p-2'>
+              <Image
+                src='/logo.avif'
+                alt='Masterseal Corporation'
+                width={30}
+                height={30}
+                style={{
+                  filter:
+                    "grayscale(100%) sepia(100%) hue-rotate(-50deg) saturate(400%) brightness(60%)",
+                }}
+              />
+              <div className='text-black font-bold text-xl'>
+                Masterseal Corporation
+              </div>
+            </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className='hidden md:flex space-x-8 items-center'>

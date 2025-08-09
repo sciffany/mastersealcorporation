@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Navigation from "../../components/Navigation";
 import seals, { categories } from "@/app/lib/data";
 import CategoryItems from "@/app/components/CategoryItems";
+import ContactUs from "@/app/components/ContactUs";
 export const dynamic = "force-static";
 export const dynamicParams = false; // only build known paths
 
@@ -75,6 +76,7 @@ export default function CategoryPage({ params }: CategoryParams) {
         }}
       />
       <CategoryItems params={{ category }} />
+      <ContactUs />
     </div>
   );
 }
