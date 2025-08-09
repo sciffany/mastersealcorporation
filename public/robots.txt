@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.mastersealcorporation.com
+
+# Sitemaps
+Sitemap: https://www.mastersealcorporation.com/sitemap.xml
