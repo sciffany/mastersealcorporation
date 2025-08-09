@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function FreeDelivery() {
   return (
@@ -23,6 +24,12 @@ export default function FreeDelivery() {
                 <br />
                 Outside Metro Manila, please coordinate with our Sales.
               </p>
+              <Link
+                href='/products/all'
+                className='bg-gradient-to-r from-red-600 to-red-700 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:from-red-700 hover:to-red-800 transition-all duration-300 transform hover:scale-105 shadow-lg'
+              >
+                Explore Products
+              </Link>
             </div>
             {/* Image Side */}
             <div className='flex items-center justify-center'>

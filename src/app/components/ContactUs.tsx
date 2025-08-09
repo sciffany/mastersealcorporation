@@ -1,4 +1,59 @@
+"use client";
+
+import { FormEvent, useMemo } from "react";
+
+enum ContactSubject {
+  Inquiry = "inquiry",
+  Quote = "quote",
+  Support = "support",
+  Order = "order",
+}
+
 export default function ContactUs() {
+  const subjectLabelMap: Record<ContactSubject | "", string> = useMemo(
+    () => ({
+      "": "N/A",
+      [ContactSubject.Inquiry]: "General Inquiry",
+      [ContactSubject.Quote]: "Request Quote",
+      [ContactSubject.Support]: "Technical Support",
+      [ContactSubject.Order]: "Order Status",
+    }),
+    []
+  );
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const data = new FormData(form);
+
+    const firstName = String(data.get("firstName") || "").trim();
+    const lastName = String(data.get("lastName") || "").trim();
+    const email = String(data.get("email") || "").trim();
+    const phone = String(data.get("phone") || "").trim();
+    const subject = String(data.get("subject") || "") as ContactSubject | "";
+    const message = String(data.get("message") || "").trim();
+
+    const fullName = [firstName, lastName].filter(Boolean).join(" ");
+    const subjectLabel = subjectLabelMap[subject] || "N/A";
+
+    const composed = [
+      `New message from: ${fullName || "N/A"}`,
+      `Subject: ${subjectLabel}`,
+      `Email: ${email || "N/A"}`,
+      `Phone: ${phone || "N/A"}`,
+      "Message:",
+      message || "N/A",
+    ].join("\n");
+
+    const isiOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+    const isAndroid = /Android/i.test(navigator.userAgent);
+
+    if (isiOS || isAndroid) {
+      window.location.href = `viber://chat/?number=%2B639602316000&draft=${composed}`;
+    } else {
+      window.location.href = `mailto:masterseal.sales@gmail.com?subject=${subjectLabel}&body=${composed}`;
+    }
+  };
   return (
     <section className='py-20 bg-gradient-to-br from-gray-900 to-black text-white'>
       <div className='container mx-auto px-8 lg:px-16'>
@@ -151,7 +206,7 @@ export default function ContactUs() {
               <h3 className='text-2xl font-bold mb-6 text-white'>
                 Send us a Message
               </h3>
-              <form className='space-y-6'>
+              <form className='space-y-6' onSubmit={handleSubmit}>
                 <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
                   <div>
                     <label
@@ -163,6 +218,7 @@ export default function ContactUs() {
                     <input
                       type='text'
                       id='firstName'
+                      name='firstName'
                       className='w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent'
                       placeholder='Enter your first name'
                     />
@@ -177,6 +233,7 @@ export default function ContactUs() {
                     <input
                       type='text'
                       id='lastName'
+                      name='lastName'
                       className='w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent'
                       placeholder='Enter your last name'
                     />
@@ -193,6 +250,7 @@ export default function ContactUs() {
                   <input
                     type='email'
                     id='email'
+                    name='email'
                     className='w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent'
                     placeholder='Enter your email address'
                   />
@@ -208,6 +266,7 @@ export default function ContactUs() {
                   <input
                     type='tel'
                     id='phone'
+                    name='phone'
                     className='w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent'
                     placeholder='Enter your phone number'
                   />
@@ -222,21 +281,34 @@ export default function ContactUs() {
                   </label>
                   <select
                     id='subject'
+                    name='subject'
                     className='w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent'
                   >
                     <option value='' className='text-gray-900'>
                       Select a subject
                     </option>
-                    <option value='inquiry' className='text-gray-900'>
+                    <option
+                      value={ContactSubject.Inquiry}
+                      className='text-gray-900'
+                    >
                       General Inquiry
                     </option>
-                    <option value='quote' className='text-gray-900'>
+                    <option
+                      value={ContactSubject.Quote}
+                      className='text-gray-900'
+                    >
                       Request Quote
                     </option>
-                    <option value='support' className='text-gray-900'>
+                    <option
+                      value={ContactSubject.Support}
+                      className='text-gray-900'
+                    >
                       Technical Support
                     </option>
-                    <option value='order' className='text-gray-900'>
+                    <option
+                      value={ContactSubject.Order}
+                      className='text-gray-900'
+                    >
                       Order Status
                     </option>
                   </select>
@@ -251,6 +323,7 @@ export default function ContactUs() {
                   </label>
                   <textarea
                     id='message'
+                    name='message'
                     rows={4}
                     className='w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent resize-none'
                     placeholder='Tell us about your inquiry...'

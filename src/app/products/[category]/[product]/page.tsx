@@ -46,7 +46,7 @@ export async function generateMetadata({
 
 const ProductPage = ({ params }: ProductParams) => {
   const { product, category } = params;
-  const seal = seals.find((s) => s.slug === product);
+  const seal = seals.find((s) => s.slug === product && s.category === category);
 
   if (!seal) {
     notFound();

@@ -18,9 +18,6 @@ export const metadata: Metadata = {
   },
   description:
     "Masterseal Corporation is a leading provider of security seals, plastic seals, metal seals, truck seals, tanker seals, container van seals, meter seals to detect tampering and pilferage.",
-  alternates: {
-    canonical: "/",
-  },
   robots: {
     index: true,
     follow: true,

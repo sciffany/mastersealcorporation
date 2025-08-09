@@ -13,7 +13,7 @@ export default function Navigation() {
     { id: 1, label: "Home", href: "/" },
     { id: 2, label: "About Us", href: "/about-us" },
     { id: 3, label: "Products", href: "/products/all" },
-    { id: 4, label: "Blog", href: "/" },
+    { id: 4, label: "Blog", href: "/blog" },
   ];
   // Handle mobile menu toggle
   const toggleMobileMenu = () => {

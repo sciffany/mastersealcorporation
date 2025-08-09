@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export default function Carousel() {
@@ -13,6 +14,7 @@ export default function Carousel() {
       description:
         "We provide security seals, plastic seals, metal seals, truck seals, tanker seals, container van seals, meter seals to detect tampering and pilferage.",
       cta: "Browse Products",
+      href: "/products/all",
       imagePlaceholder: "Image 1",
       theme: "pink",
       textColor: "gray-900",
@@ -26,6 +28,7 @@ export default function Carousel() {
       description:
         "Protecting your valuable cargo with industry-leading security solutions.",
       cta: "Learn More",
+      href: "/about-us",
       imagePlaceholder: "Image 2",
       theme: "red",
       textColor: "white",
@@ -142,9 +145,12 @@ export default function Carousel() {
                   >
                     {slide.description}
                   </p>
-                  <button className='bg-white text-gray-900 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg'>
+                  <Link
+                    href={slide.href}
+                    className='inline-block bg-white text-gray-900 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg'
+                  >
                     {slide.cta}
-                  </button>
+                  </Link>
                 </div>
               </div>
 
@@ -190,9 +196,12 @@ export default function Carousel() {
                   >
                     {slide.description}
                   </p>
-                  <button className='bg-white text-gray-900 px-6 py-3 rounded-lg text-base font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg'>
+                  <Link
+                    href={slide.href}
+                    className='inline-block bg-white text-gray-900 px-6 py-3 rounded-lg text-base font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg'
+                  >
                     {slide.cta}
-                  </button>
+                  </Link>
                 </div>
               </div>
 
