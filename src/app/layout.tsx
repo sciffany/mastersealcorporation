@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
+import { meta } from "./lib/data";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -18,6 +19,10 @@ export const metadata: Metadata = {
   },
   description:
     "Masterseal Corporation is a leading provider of security seals, plastic seals, metal seals, truck seals, tanker seals, container van seals, meter seals to detect tampering and pilferage.",
+  keywords: meta["/"].keywords,
+  other: {
+    search: "bullet seal, cable seal, hexa seal, warranty sticker, void tape",
+  },
   robots: {
     index: true,
     follow: true,
@@ -31,8 +36,8 @@ export const metadata: Metadata = {
       "Masterseal Corporation is a leading provider of security seals for trucks, containers, meters, and more in the Philippines.",
     images: [
       {
-        url: "/logo.avif",
-        width: 1200,
+        url: "/android-chrome-512x512.png",
+        width: 630,
         height: 630,
         alt: "Masterseal Corporation",
       },
@@ -43,7 +48,7 @@ export const metadata: Metadata = {
     title: "Masterseal Corporation",
     description:
       "Masterseal Corporation is a leading provider of security seals for trucks, containers, meters, and more in the Philippines.",
-    images: ["/logo.avif"],
+    images: ["/android-chrome-512x512.png"],
   },
 };
 

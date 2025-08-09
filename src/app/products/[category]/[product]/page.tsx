@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Navigation from "@/app/components/Navigation";
-import seals, { categories } from "@/app/lib/data";
+import seals, { categories, meta } from "@/app/lib/data";
 import ContactUs from "@/app/components/ContactUs";
 
 export const dynamic = "force-static";
@@ -30,10 +30,14 @@ export async function generateMetadata({
     seal.description || `${seal.name} security seal details and brochure.`;
   const base = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
   const canonical = `${base}/products/${seal.category}/${seal.slug}`;
+  const categoryMeta = (meta as Record<string, any>)[
+    `/products/${seal.category}`
+  ];
 
   return {
     title,
     description,
+    keywords: categoryMeta?.keywords,
     alternates: { canonical },
     openGraph: {
       title,

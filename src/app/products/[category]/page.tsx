@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Navigation from "../../components/Navigation";
-import seals, { categories } from "@/app/lib/data";
+import seals, { categories, meta } from "@/app/lib/data";
 import CategoryItems from "@/app/components/CategoryItems";
 import ContactUs from "@/app/components/ContactUs";
 export const dynamic = "force-static";
@@ -20,7 +20,11 @@ export async function generateMetadata({
   const { category } = params;
   const categoryData = categories.find((c) => c.slug === category);
   const title = categoryData ? `${categoryData.name} Seals` : "All Products";
-  const description = categoryData
+  const metaKey = `/products/${category}`;
+  const pageMeta = (meta as Record<string, any>)[metaKey];
+  const description = pageMeta?.description
+    ? pageMeta.description
+    : categoryData
     ? `${categoryData.name} security seals. Browse brochures, descriptions, and minimum order quantities.`
     : "Browse all security seals, with brochures and descriptions.";
   const base = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
@@ -29,6 +33,7 @@ export async function generateMetadata({
   return {
     title,
     description,
+    keywords: pageMeta?.keywords,
     alternates: { canonical },
     openGraph: {
       title,

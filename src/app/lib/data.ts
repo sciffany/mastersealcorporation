@@ -356,3 +356,106 @@ export type Blog = {
   content: string;
   caption?: string;
 };
+
+export const meta = {
+  "/": {
+    keywords: [
+      "plastic security seals",
+      "metal seal",
+      "truck seal",
+      "fortris seal",
+      "tamper-evident seals",
+      "numbered plastic seal",
+      "tamper proof",
+      "security seals",
+      "unisto seal",
+    ],
+  },
+  "/about": {
+    description:
+      "This page is about what Masterseal Corporation company, has achieved in the area of security seals distribution in the Philippines. It also talks about the variety of products and services that the company provides to manufacturers in the Philippines. For example, some of its main products include metal security seals.",
+    keywords: [
+      "primera seal",
+      "mega fortris",
+      "cathay seal",
+      "unisto seal",
+      "essentra security seal",
+    ],
+  },
+  "/products/fixed-length": {
+    description:
+      "Masterseal Corporation has various seal products to suit your needs. Feel free to contact us for queries or quotations.",
+    keywords: [
+      "plastic security seals",
+      "bolt seal",
+      "cable seal",
+      "tanker seals",
+      "indicative seal",
+      "pre-numbered seals",
+      "numbered plastic seals",
+      "Essentra distributor",
+      "high security truck seal",
+      "fortris seal",
+      "unisto",
+      "metal seals",
+    ],
+  },
+  "/products/variable-length": {
+    description:
+      "Masterseal Corporation has various seal products to suit your needs. Feel free to contact us for queries or quotations.",
+    keywords: [
+      "plastic security seals",
+      "bolt seal",
+      "cable seal",
+      "tanker seals",
+      "indicative seal",
+      "pre-numbered seals",
+      "numbered plastic seals",
+      "Essentra distributor",
+      "high security truck seal",
+      "fortris seal",
+      "unisto",
+      "metal seals",
+    ],
+  },
+  "/products/barrier-seal": {
+    description:
+      "Masterseal Corporation has various seal products to suit your needs. Feel free to contact us for queries or quotations.",
+    keywords: [
+      "plastic security seals",
+      "bolt seal",
+      "cable seal",
+      "tanker seals",
+      "indicative seal",
+      "pre-numbered seals",
+      "numbered plastic seals",
+      "Essentra distributor",
+      "high security truck seal",
+      "fortris seal",
+      "unisto",
+      "metal seals",
+    ],
+  },
+  "/products/special-purpose": {
+    description:
+      "Masterseal Corporation has various seal products to suit your needs. Feel free to contact us for queries or quotations.",
+    keywords: [
+      "plastic security seals",
+      "bolt seal",
+      "cable seal",
+      "tanker seals",
+      "indicative seal",
+      "pre-numbered seals",
+      "numbered plastic seals",
+      "Essentra distributor",
+      "high security truck seal",
+      "fortris seal",
+      "unisto",
+      "metal seals",
+    ],
+  },
+  blogs: {
+    description:
+      "Masterseal Corporation is dedicated to providing quality seals which you can trust. Thus, in order to help you make an informed decision about which seal to purchase, we have written a blog which will inform and guide you on the seals that will best suit your company's needs.",
+  },
+};

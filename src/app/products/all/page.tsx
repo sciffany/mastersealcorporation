@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Navigation from "../../components/Navigation";
-import seals, { categories } from "@/app/lib/data";
+import seals, { categories, meta } from "@/app/lib/data";
 import CategoryItems from "@/app/components/CategoryItems";
 import ContactUs from "@/app/components/ContactUs";
 import Categories from "@/app/components/Categories";
@@ -19,7 +19,9 @@ export async function generateMetadata({
   params,
 }: CategoryParams): Promise<Metadata> {
   const title = "All Products";
+  const pageMeta = (meta as Record<string, any>)["/products/all"];
   const description =
+    pageMeta?.description ||
     "Browse all security seals, with brochures and descriptions.";
   const base = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
   const canonical = `${base}/products/all`;
@@ -27,6 +29,7 @@ export async function generateMetadata({
   return {
     title,
     description,
+    keywords: pageMeta?.keywords,
     alternates: { canonical },
     openGraph: {
       title,

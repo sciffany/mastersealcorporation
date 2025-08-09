@@ -1,11 +1,20 @@
+import type { Metadata } from "next";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import remarkBreaks from "remark-breaks";
 import Navigation from "../components/Navigation";
-import { blogPosts } from "../lib/data";
+import { blogPosts, meta } from "../lib/data";
 import Link from "next/link";
 import Image from "next/image";
 import ContactUs from "../components/ContactUs";
+
+export const metadata: Metadata = {
+  title: "Blogs",
+  description:
+    (meta as Record<string, any>)["blogs"]?.description ||
+    "Read helpful posts from Masterseal Corporation.",
+  alternates: { canonical: "/blog" },
+};
 
 export default function Blogs() {
   return (

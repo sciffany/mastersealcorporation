@@ -1,4 +1,4 @@
-import { blogPosts } from "@/app/lib/data";
+import { blogPosts, meta } from "@/app/lib/data";
 import type { Metadata } from "next";
 import ReactMarkdown from "react-markdown";
 import Navigation from "@/app/components/Navigation";
@@ -20,7 +20,13 @@ type BlogParams = { params: { blog: string } };
 export async function generateMetadata({
   params,
 }: BlogParams): Promise<Metadata> {
+  const pageMeta = (meta as Record<string, any>)["blogs"]; // shared blog meta
+  const post = blogPosts.find((b) => b.slug === params.blog);
+  const title = post ? `${post.title} | Blog` : undefined;
+  const description = pageMeta?.description;
   return {
+    title,
+    description,
     alternates: {
       canonical: `/post/${params.blog}`,
     },
