@@ -137,11 +137,11 @@ export default function Carousel() {
               {/* First Half: Text with padding */}
               <div className='w-1/2 flex items-center justify-center p-16 pl-48'>
                 <div className={`text-${slide.textColor} space-y-8 max-w-lg`}>
-                  <h1 className='text-5xl lg:text-6xl font-bold leading-tight'>
+                  <h1 className='text-5xl lg:text-5xl font-bold leading-tight'>
                     {slide.title}
                   </h1>
                   <p
-                    className={`text-xl lg:text-2xl text-${slide.textColor} leading-relaxed`}
+                    className={`text-xl lg:text-xl text-${slide.textColor} leading-relaxed`}
                   >
                     {slide.description}
                   </p>

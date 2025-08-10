@@ -60,8 +60,8 @@ export default function ContactUs() {
         <div className='max-w-6xl mx-auto'>
           {/* Header */}
           <div className='text-center mb-16'>
-            <h2 className='text-4xl lg:text-5xl font-bold mb-6'>Contact Us</h2>
-            <p className='text-xl lg:text-2xl text-gray-300 leading-relaxed max-w-3xl mx-auto'>
+            <h2 className='text-3xl lg:text-3xl font-bold mb-6'>Contact Us</h2>
+            <p className='text-lg lg:text-lg text-gray-300 leading-relaxed max-w-3xl mx-auto'>
               Get in touch with our team for any inquiries about our security
               seals and solutions.
             </p>

@@ -32,7 +32,7 @@ export default function BlogCards() {
                     <p className='text-sm text-gray-500 mb-3'>
                       {blog.date} • {blog.time} min read • {blog.author}
                     </p>
-                    <h2 className='text-3xl font-semibold mb-2 text-black'>
+                    <h2 className='text-2xl font-semibold mb-2 text-black'>
                       {blog.title}
                     </h2>
                     <div

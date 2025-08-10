@@ -7,10 +7,10 @@ export default function SealGallery() {
     <section className='py-20 bg-orange-100'>
       <div className='container mx-auto px-8 lg:px-16'>
         <div className='max-w-6xl mx-auto text-center'>
-          <h2 className='text-4xl lg:text-5xl font-bold text-gray-900 mb-8'>
+          <h2 className='text-4xl lg:text-4xl font-bold text-gray-900 mb-8'>
             Over 20 types of seals to suit your needs!
           </h2>
-          <p className='text-xl lg:text-2xl text-gray-700 leading-relaxed mb-12 max-w-4xl mx-auto'>
+          <p className='text-lg lg:text-lg text-gray-700 leading-relaxed mb-12 max-w-4xl mx-auto'>
             From plastic security seals to heavy-duty metal seals, we have the
             perfect solution for every application.
           </p>

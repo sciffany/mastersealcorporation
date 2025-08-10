@@ -19,10 +19,10 @@ export default function Delivery() {
             </div>
             {/* Content Side */}
             <div className='text-center lg:text-left'>
-              <h2 className='text-4xl lg:text-5xl font-bold text-gray-900 mb-8'>
+              <h2 className='text-3xl font-bold text-gray-900 mb-4'>
                 Hassle-free delivery
               </h2>
-              <p className='text-lg lg:text-xl text-gray-700 leading-relaxed mb-8'>
+              <p className='text-lg text-gray-700 leading-relaxed mb-8'>
                 Worry no more about stolen goods and missing inventory items.
                 With Masterseal Corporation's plastic and metal seals, you can
                 deliver your products reliably!

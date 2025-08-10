@@ -15,6 +15,7 @@ export default function Navigation() {
     { id: 2, label: "About Us", href: "/about-us" },
     { id: 3, label: "Products", href: "/products/all" },
     { id: 4, label: "Blog", href: "/blog" },
+    { id: 5, label: "Brochures", href: "/brochures" },
   ];
   // Handle mobile menu toggle
   const toggleMobileMenu = () => {

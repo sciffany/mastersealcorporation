@@ -42,7 +42,7 @@ export default function CategoryPage({
             )}
             <span className='text-gray-800'>{categoryData?.name}</span>
           </nav>
-          <h1 className='text-black text-center text-5xl font-semibold my-10'>
+          <h1 className='text-black text-center text-3xl font-semibold my-10'>
             {categoryData?.name || "All Products"}
           </h1>
           <div className='grid grid-cols-1 md:grid-cols-3 gap-14'>

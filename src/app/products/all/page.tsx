@@ -4,6 +4,7 @@ import seals, { categories, meta } from "@/app/lib/data";
 import CategoryItems from "@/app/components/CategoryItems";
 import ContactUs from "@/app/components/ContactUs";
 import Categories from "@/app/components/Categories";
+import Link from "next/link";
 export const dynamic = "force-static";
 export const dynamicParams = false; // only build known paths
 
@@ -75,6 +76,7 @@ export default function CategoryPage({ params }: CategoryParams) {
         }}
       />
       <Categories />
+
       <ContactUs />
     </div>
   );

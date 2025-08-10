@@ -9,10 +9,10 @@ export default function FreeDelivery() {
           <div className='grid grid-cols-1 lg:grid-cols-2 gap-24 items-center'>
             {/* Content Side */}
             <div className='text-center lg:text-left'>
-              <h2 className='text-4xl lg:text-5xl font-bold text-gray-900 mb-8'>
+              <h2 className='text-3xl lg:text-3xl font-bold text-gray-900 mb-4'>
                 Free Delivery
               </h2>
-              <p className='text-lg lg:text-xl text-gray-700 leading-relaxed mb-8'>
+              <p className='text-lg lg:text-lg text-gray-700 leading-relaxed mb-8'>
                 <b>Delivery is free within Metro Manila.</b>
                 <br />
                 <br />

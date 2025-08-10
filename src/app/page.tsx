@@ -5,6 +5,7 @@ import FreeDelivery from "./components/FreeDelivery";
 import SealGallery from "./components/SealGallery";
 import ContactUs from "./components/ContactUs";
 import Navigation from "./components/Navigation";
+import Footer from "./components/Footer";
 import { meta } from "./lib/data";
 
 export const metadata: Metadata = {
@@ -31,6 +32,7 @@ export default function Home() {
       <FreeDelivery />
 
       <ContactUs />
+      <Footer />
     </>
   );
 }

@@ -20,8 +20,11 @@ export default function Blogs() {
   return (
     <div>
       <Navigation />
-      <section className='py-28 bg-purple-100'>
-        <h1 className='text-4xl font-bold text-center text-black'>Blogs</h1>
+      <section className='py-36 bg-white'>
+        <h1 className='text-3xl font-semibold text-center text-black'>Blogs</h1>
+        <p className='text-lg text-center text-black mt-3'>
+          Read helpful posts from Masterseal Corporation.
+        </p>
         <div className='container mx-auto px-6 lg:px-32 py-6'>
           <div className='flex flex-col gap-6'>
             {blogPosts.map((blog) => (
@@ -45,7 +48,7 @@ export default function Blogs() {
                       <p className='text-sm text-gray-500 mb-3'>
                         {blog.date} • {blog.time} min read • {blog.author}
                       </p>
-                      <h2 className='text-3xl font-semibold mb-6 text-black'>
+                      <h2 className='text-2xl font-semibold mb-6 text-black'>
                         {blog.title}
                       </h2>
                       <div
