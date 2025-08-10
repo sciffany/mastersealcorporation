@@ -14,8 +14,8 @@ const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: "Masterseal Corporation",
-    template: "%s | Masterseal Corporation",
+    default: "Masterseal Corporation | Security Seals | Manila",
+    template: "%s | Masterseal Corporation | Security Seals | Manila",
   },
   description:
     "Masterseal Corporation is a leading provider of security seals, plastic seals, metal seals, truck seals, tanker seals, container van seals, meter seals to detect tampering and pilferage.",
@@ -30,8 +30,8 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: BASE_URL,
-    siteName: "Masterseal Corporation",
-    title: "Masterseal Corporation",
+    siteName: "Masterseal Corporation | Security Seals | Manila",
+    title: "Masterseal Corporation | Security Seals | Manila",
     description:
       "Masterseal Corporation is a leading provider of security seals for trucks, containers, meters, and more in the Philippines.",
     images: [
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Masterseal Corporation",
+    title: "Masterseal Corporation | Security Seals | Manila",
     description:
       "Masterseal Corporation is a leading provider of security seals for trucks, containers, meters, and more in the Philippines.",
     images: ["/logo.png"],
