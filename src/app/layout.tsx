@@ -60,7 +60,7 @@ export default function RootLayout({
   const orgJsonLd = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: "Masterseal Corporation",
+    name: "Masterseal Corporation | Security Seals | Manila",
     url: BASE_URL,
     logo: "/logo.png",
   };
@@ -68,7 +68,7 @@ export default function RootLayout({
   const websiteJsonLd = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: "Masterseal Corporation",
+    name: "Masterseal Corporation | Security Seals | Manila",
     url: BASE_URL,
   };
   return (
