@@ -458,3 +458,5 @@ export const meta = {
       "Masterseal Corporation is dedicated to providing quality seals which you can trust. Thus, in order to help you make an informed decision about which seal to purchase, we have written a blog which will inform and guide you on the seals that will best suit your company's needs.",
   },
 };
+
+export default seals;
