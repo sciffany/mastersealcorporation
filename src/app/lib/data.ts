@@ -177,6 +177,31 @@ const seals: Seal[] = [
   },
 ];
 
+export default seals;
+
+export const categories = [
+  {
+    slug: "fixed-length",
+    name: "Fixed Length",
+    image: "/fixed-length/TwinLock_Pastel_shades.JPG",
+  },
+  {
+    slug: "variable-length",
+    name: "Variable Length",
+    image: "/variable-length/Dobolox.avif",
+  },
+  {
+    slug: "barrier-seal",
+    name: "Barrier Seals",
+    image: "/barrier-seal/cableseal.avif",
+  },
+  {
+    slug: "special-purpose",
+    name: "Special Purpose",
+    image: "/special-purpose/securitape.avif",
+  },
+];
+
 export type Seal = {
   slug: string;
   name: string;
@@ -458,5 +483,3 @@ export const meta = {
       "Masterseal Corporation is dedicated to providing quality seals which you can trust. Thus, in order to help you make an informed decision about which seal to purchase, we have written a blog which will inform and guide you on the seals that will best suit your company's needs.",
   },
 };
-
-export default seals;
