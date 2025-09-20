@@ -147,13 +147,14 @@ const seals: Seal[] = [
     image: "/barrier-seal/permaseal.avif",
   },
   {
-    slug: "tav-bolt",
-    name: "TavBolt",
-    pdf: "/barrier-seal/TavBolt_Brochure.pdf",
+    slug: "tav-bolt-bp",
+    name: "TavBolt BP",
+    pdf: "/barrier-seal/TavBolt_BP_Brochure.pdf",
     category: "barrier-seal",
-    description: "",
-    moq: "",
-    image: "",
+    description:
+      "Classified as High Security. Compliant to ISO 1771:2013. Ideal for freight containers",
+    moq: 200,
+    image: "/barrier-seal/TavBolt_BP.jpg",
   },
   {
     slug: "anchorlock",
