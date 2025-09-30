@@ -254,7 +254,7 @@ const seals: Seal[] = [
     description:
       "Suitable for e-carts & airline trolleys. Easy to lock & remove manually",
     moq: "10,000",
-    image: "/special-purpose/CartLock.jpg",
+    image: "/special-purpose/CartLock2.jpg",
   },
   {
     slug: "padlock",
