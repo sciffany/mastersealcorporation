@@ -36,13 +36,13 @@ export default function ContactUs() {
     const data = new FormData(form);
 
     const firstName = String(data.get("firstName") || "").trim();
-    const lastName = String(data.get("lastName") || "").trim();
+    const companyName = String(data.get("companyName") || "").trim();
     const email = String(data.get("email") || "").trim();
     const phone = String(data.get("phone") || "").trim();
     const subject = String(data.get("subject") || "") as ContactSubject | "";
     const message = String(data.get("message") || "").trim();
 
-    const fullName = [firstName, lastName].filter(Boolean).join(" ");
+    const fullName = [firstName, companyName].filter(Boolean).join(" ");
     const subjectLabel = subjectLabelMap[subject] || "N/A";
 
     try {
@@ -245,17 +245,17 @@ export default function ContactUs() {
                   </div>
                   <div>
                     <label
-                      htmlFor='lastName'
+                      htmlFor='companyName'
                       className='block text-sm font-medium text-gray-300 mb-2'
                     >
-                      Last Name
+                      Company Name
                     </label>
                     <input
                       type='text'
-                      id='lastName'
-                      name='lastName'
+                      id='companyName'
+                      name='companyName'
                       className='w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent'
-                      placeholder='Enter your last name'
+                      placeholder='Enter your company name'
                     />
                   </div>
                 </div>
@@ -318,18 +318,6 @@ export default function ContactUs() {
                       className='text-gray-900'
                     >
                       Request Quote
-                    </option>
-                    <option
-                      value={ContactSubject.Support}
-                      className='text-gray-900'
-                    >
-                      Technical Support
-                    </option>
-                    <option
-                      value={ContactSubject.Order}
-                      className='text-gray-900'
-                    >
-                      Order Status
                     </option>
                   </select>
                 </div>
