@@ -21,6 +21,8 @@ export default function ContactUs() {
       "": "N/A",
       [ContactSubject.Inquiry]: "General Inquiry",
       [ContactSubject.Quote]: "Request Quote",
+      [ContactSubject.Support]: "Technical Support",
+      [ContactSubject.Order]: "Order Status",
     }),
     []
   );
@@ -58,6 +60,9 @@ export default function ContactUs() {
         phone: phone || "N/A",
         subject: subjectLabel,
         message: message,
+        company: companyName,
+        name: name,
+        category: subject,
         to_email: "masterseal.sales@gmail.com",
       };
 
