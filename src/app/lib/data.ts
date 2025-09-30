@@ -57,7 +57,7 @@ const seals: Seal[] = [
     description:
       "Suitable for fire extinguisher, emergency devices, medical kits. ",
     moq: "1,000",
-    image: "/variable-length/LightLock.jpg",
+    image: "/variable-length/Lightlock.jpg",
   },
   {
     slug: "m-lock",
@@ -145,7 +145,7 @@ const seals: Seal[] = [
     description:
       "TeraLock Type-X features ruler scale on strap (to guide seal tightening level) ",
     moq: "10,000",
-    image: "/variable-length/Teralock.avif",
+    image: "/variable-length/Teralock2.avif",
   },
   {
     slug: "alu-cable-seal",
@@ -165,7 +165,7 @@ const seals: Seal[] = [
     description:
       "A secure alternative to padlock. Can contain carcode and up to 13-digit serial numbers",
     moq: "3,000",
-    image: "/barrier-seal/Cable_Seal_Plaska.jog",
+    image: "/barrier-seal/Cable_Seal_Plaska.jpg",
   },
   {
     slug: "cable-grip",
