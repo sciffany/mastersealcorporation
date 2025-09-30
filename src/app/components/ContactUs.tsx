@@ -1,6 +1,7 @@
 "use client";
 
-import { FormEvent, useMemo } from "react";
+import { FormEvent, useMemo, useState } from "react";
+import emailjs from "@emailjs/browser";
 
 enum ContactSubject {
   Inquiry = "inquiry",
@@ -10,6 +11,11 @@ enum ContactSubject {
 }
 
 export default function ContactUs() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<
+    "idle" | "success" | "error"
+  >("idle");
+
   const subjectLabelMap: Record<ContactSubject | "", string> = useMemo(
     () => ({
       "": "N/A",
@@ -21,8 +27,11 @@ export default function ContactUs() {
     []
   );
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus("idle");
+
     const form = e.currentTarget;
     const data = new FormData(form);
 
@@ -36,22 +45,33 @@ export default function ContactUs() {
     const fullName = [firstName, lastName].filter(Boolean).join(" ");
     const subjectLabel = subjectLabelMap[subject] || "N/A";
 
-    const composed = [
-      `New message from: ${fullName || "N/A"}`,
-      `Subject: ${subjectLabel}`,
-      `Email: ${email || "N/A"}`,
-      `Phone: ${phone || "N/A"}`,
-      "Message:",
-      message || "N/A",
-    ].join("\n");
+    try {
+      // EmailJS configuration - you'll need to replace these with your actual values
+      const serviceId =
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "your_service_id";
+      const templateId =
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "your_template_id";
+      const publicKey =
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "your_public_key";
 
-    const isiOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
-    const isAndroid = /Android/i.test(navigator.userAgent);
+      const templateParams = {
+        from_name: fullName,
+        from_email: email,
+        phone: phone || "N/A",
+        subject: subjectLabel,
+        message: message,
+        to_email: "masterseal.sales@gmail.com",
+      };
 
-    if (isiOS || isAndroid) {
-      window.location.href = `viber://chat/?number=%2B639602316000&draft=${composed}`;
-    } else {
-      window.location.href = `mailto:masterseal.sales@gmail.com?subject=${subjectLabel}&body=${composed}`;
+      await emailjs.send(serviceId, templateId, templateParams, publicKey);
+
+      setSubmitStatus("success");
+      form.reset();
+    } catch (error) {
+      console.error("Error sending email:", error);
+      setSubmitStatus("error");
+    } finally {
+      setIsSubmitting(false);
     }
   };
   return (
@@ -332,10 +352,51 @@ export default function ContactUs() {
 
                 <button
                   type='submit'
-                  className='w-full bg-gradient-to-r from-red-600 to-red-700 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:from-red-700 hover:to-red-800 transition-all duration-300 transform hover:scale-105 shadow-lg'
+                  disabled={isSubmitting}
+                  className='w-full bg-gradient-to-r from-red-600 to-red-700 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:from-red-700 hover:to-red-800 transition-all duration-300 transform hover:scale-105 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none'
                 >
-                  Send Message
+                  {isSubmitting ? "Sending..." : "Send Message"}
                 </button>
+
+                {/* Status Messages */}
+                {submitStatus === "success" && (
+                  <div className='mt-4 p-4 bg-green-100 border border-green-400 text-green-700 rounded-lg'>
+                    <div className='flex items-center'>
+                      <svg
+                        className='w-5 h-5 mr-2'
+                        fill='currentColor'
+                        viewBox='0 0 20 20'
+                      >
+                        <path
+                          fillRule='evenodd'
+                          d='M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z'
+                          clipRule='evenodd'
+                        />
+                      </svg>
+                      Message sent successfully! We'll get back to you soon.
+                    </div>
+                  </div>
+                )}
+
+                {submitStatus === "error" && (
+                  <div className='mt-4 p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg'>
+                    <div className='flex items-center'>
+                      <svg
+                        className='w-5 h-5 mr-2'
+                        fill='currentColor'
+                        viewBox='0 0 20 20'
+                      >
+                        <path
+                          fillRule='evenodd'
+                          d='M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z'
+                          clipRule='evenodd'
+                        />
+                      </svg>
+                      Failed to send message. Please try again or contact us
+                      directly.
+                    </div>
+                  </div>
+                )}
               </form>
             </div>
           </div>
