@@ -21,8 +21,6 @@ export default function ContactUs() {
       "": "N/A",
       [ContactSubject.Inquiry]: "General Inquiry",
       [ContactSubject.Quote]: "Request Quote",
-      [ContactSubject.Support]: "Technical Support",
-      [ContactSubject.Order]: "Order Status",
     }),
     []
   );
@@ -35,14 +33,14 @@ export default function ContactUs() {
     const form = e.currentTarget;
     const data = new FormData(form);
 
-    const firstName = String(data.get("firstName") || "").trim();
+    const name = String(data.get("name") || "").trim();
     const companyName = String(data.get("companyName") || "").trim();
     const email = String(data.get("email") || "").trim();
     const phone = String(data.get("phone") || "").trim();
     const subject = String(data.get("subject") || "") as ContactSubject | "";
     const message = String(data.get("message") || "").trim();
 
-    const fullName = [firstName, companyName].filter(Boolean).join(" ");
+    const fullName = [name, companyName].filter(Boolean).join(" ");
     const subjectLabel = subjectLabelMap[subject] || "N/A";
 
     try {
@@ -230,17 +228,17 @@ export default function ContactUs() {
                 <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
                   <div>
                     <label
-                      htmlFor='firstName'
+                      htmlFor='name'
                       className='block text-sm font-medium text-gray-300 mb-2'
                     >
-                      First Name
+                      Name
                     </label>
                     <input
                       type='text'
-                      id='firstName'
-                      name='firstName'
+                      id='name'
+                      name='name'
                       className='w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent'
-                      placeholder='Enter your first name'
+                      placeholder='Enter your name'
                     />
                   </div>
                   <div>
