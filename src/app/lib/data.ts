@@ -341,7 +341,7 @@ export const categories = [
   {
     slug: "barrier-seal",
     name: "Barrier Seals",
-    image: "/barrier-seal/cableseal.avif",
+    image: "/barrier-seal/TavBolt_BP.jpg",
   },
   {
     slug: "special-purpose",
