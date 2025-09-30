@@ -55,14 +55,13 @@ export default function ContactUs() {
         process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "your_public_key";
 
       const templateParams = {
-        from_name: fullName,
-        from_email: email,
         phone: phone || "N/A",
         subject: subjectLabel,
         message: message,
         company: companyName,
         name: name,
         category: subject,
+        email: email,
         to_email: "masterseal.sales@gmail.com",
       };
 
